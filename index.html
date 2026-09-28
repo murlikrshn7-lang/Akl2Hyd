@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akl2Hyd | Digital Adoption, Web & App Development</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0B0F17',
+              card: '#161F30',
+              accent: '#3B82F6',
+              teal: '#10B981',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased flex flex-col min-h-screen">
+
+  <!-- Navigation Bar -->
+  <header class="sticky top-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-2 group">
+        <span class="text-2xl font-extrabold tracking-tight text-white group-hover:text-blue-400 transition">
+          AKL<span class="text-blue-500">2</span>HYD
+        </span>
+        <span class="hidden sm:inline-block text-[10px] uppercase font-semibold px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">
+          Digital Studio
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
+        <a href="#home" class="hover:text-blue-400 transition">Home</a>
+        <a href="#services" class="hover:text-blue-400 transition">Services</a>
+        <a href="#packages" class="hover:text-blue-400 transition">Packages & Pricing</a>
+        <a href="#payment" class="hover:text-blue-400 transition">Pay Now</a>
+        <a href="#about" class="hover:text-blue-400 transition">About Us & Legal</a>
+        <a href="#location" class="hover:text-blue-400 transition">Location & Hours</a>
+        <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+      </nav>
+
+      <!-- Action Button & Social Links -->
+      <div class="hidden md:flex items-center gap-3">
+        <div class="flex items-center gap-2 mr-2 border-r border-slate-800 pr-4">
+          <a href="https://www.facebook.com/profile.php?id=61594793784310" target="_blank" class="w-9 h-9 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-blue-600 flex items-center justify-center transition" title="Facebook">
+            <i class="fa-brands fa-facebook-f text-sm"></i>
+          </a>
+          <a href="https://www.instagram.com/akl2hyd/" target="_blank" class="w-9 h-9 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-pink-600 flex items-center justify-center transition" title="Instagram">
+            <i class="fa-brands fa-instagram text-sm"></i>
+          </a>
+        </div>
+        <a href="https://wa.me/916302347068?text=Hello%20Akl2Hyd%2C%20I%20am%20interested%20in%20your%20services." 
+           target="_blank" 
+           class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-lg flex items-center gap-2 transition shadow-lg shadow-emerald-900/20">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          Chat on WhatsApp
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white p-2">
+        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-brand-card px-4 pt-2 pb-6 space-y-3">
+      <a href="#home" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 hover:text-blue-400">Home</a>
+      <a href="#services" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 hover:text-blue-400">Services</a>
+      <a href="#packages" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 hover:text-blue-400">Packages & Pricing</a>
+      <a href="#payment" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 hover:text-blue-400">Pay Now</a>
+      <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 hover:text-blue-400">About Us & Legal</a>
+      <a href="#location" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 hover:text-blue-400">Location & Hours</a>
+      <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 hover:text-blue-400">Contact</a>
+      <div class="flex items-center gap-3 pt-2">
+        <a href="https://www.facebook.com/profile.php?id=61594793784310" target="_blank" class="flex-1 bg-slate-800 text-slate-200 py-2 rounded-lg flex items-center justify-center gap-2 text-xs font-semibold hover:bg-blue-600 transition">
+          <i class="fa-brands fa-facebook-f"></i> Facebook
+        </a>
+        <a href="https://www.instagram.com/akl2hyd/" target="_blank" class="flex-1 bg-slate-800 text-slate-200 py-2 rounded-lg flex items-center justify-center gap-2 text-xs font-semibold hover:bg-pink-600 transition">
+          <i class="fa-brands fa-instagram"></i> Instagram
+        </a>
+      </div>
+      <a href="https://wa.me/916302347068" target="_blank" class="w-full bg-emerald-600 text-white font-bold py-2.5 rounded-lg flex items-center justify-center gap-2">
+        <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+
+    <!-- HERO SECTION (HOME) -->
+    <section id="home" class="relative py-20 lg:py-32 overflow-hidden border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          
+          <div class="space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold">
+              <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+              Auckland & Direct Global Standards &bull; Hyderabad Tech Hub
+            </div>
+            
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+              Bridging Ideas into <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Digital Reality.</span>
+            </h1>
+
+            <p class="text-slate-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
+              Akl2Hyd helps traditional businesses and growing startups adopt modern digital setups, build high-speed websites, deploy mobile apps, and optimize hardware performance.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+              <a href="#packages" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3.5 rounded-lg transition text-center shadow-lg shadow-blue-600/30">
+                View Service Packages
+              </a>
+              <a href="#payment" class="w-full sm:w-auto border border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 font-semibold px-6 py-3.5 rounded-lg transition text-center">
+                Make Direct UPI Payment
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Graphic Element -->
+          <div class="relative flex justify-center">
+            <div class="w-full max-w-md bg-brand-card border border-slate-800 rounded-2xl p-6 shadow-2xl relative">
+              <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                  <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                  <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                </div>
+                <span class="text-xs font-mono text-slate-500">akl2hyd.studio</span>
+              </div>
+              <div class="py-6 space-y-4 font-mono text-xs">
+                <div class="text-emerald-400">&gt; Akl2Hyd.initiateDigitalTransformation()</div>
+                <div class="text-slate-400 pl-4">&bull; Web & App Digital Solutions: <span class="text-yellow-400">READY</span></div>
+                <div class="text-slate-400 pl-4">&bull; Custom AI Agent Bots: <span class="text-yellow-400">ACTIVE</span></div>
+                <div class="text-slate-400 pl-4">&bull; Hardware & PC Tune-Up: <span class="text-yellow-400">DEPLOYED</span></div>
+                <div class="text-blue-400 font-bold border-t border-slate-800 pt-3">&gt; Status: Ready to scale your business.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-20 bg-brand-dark/50 border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">Capabilities</h2>
+          <p class="text-3xl font-extrabold text-white sm:text-4xl">Services We Offer</p>
+          <p class="text-slate-400 mt-3 text-sm sm:text-base">Comprehensive digital and IT solutions engineered for performance and scalability.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          
+          <!-- Service 1: Digital Adoption -->
+          <div class="bg-brand-card border border-slate-800 hover:border-blue-500/40 rounded-xl p-8 transition duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                <i class="fa-solid fa-rocket"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Digital Adoption</h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                Transition your offline workflows into efficient, digitized systems. We set up automated messaging, online ordering, cloud storage, and payment collection workflows.
+              </p>
+            </div>
+            <a href="https://wa.me/916302347068?text=I%20want%20to%20know%20more%20about%20Digital%20Adoption" target="_blank" class="text-xs font-bold text-blue-400 hover:text-blue-300 flex items-center gap-1">
+              Discuss Digital Adoption <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+
+          <!-- Service 2: Web Development -->
+          <div class="bg-brand-card border border-slate-800 hover:border-blue-500/40 rounded-xl p-8 transition duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Web & App Development</h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                High-performance, responsive websites and Android/iOS cross-platform apps built using modern frameworks. Hosted on global edge networks for sub-second speeds.
+              </p>
+            </div>
+            <a href="https://wa.me/916302347068?text=I%20want%20to%20know%20more%20about%20Web%20Development" target="_blank" class="text-xs font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1">
+              Discuss Web Projects <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+
+          <!-- Service 3: AI & IT Hardware Optimization -->
+          <div class="bg-brand-card border border-slate-800 hover:border-blue-500/40 rounded-xl p-8 transition duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                <i class="fa-solid fa-microchip"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">AI Agents & PC Performance</h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                Deploy 24/7 AI chatbot agents for automated lead capture, or tune up your business laptops with high-speed SSD upgrades and software cleaning.
+              </p>
+            </div>
+            <a href="https://wa.me/916302347068?text=I%20want%20to%20know%20more%20about%20AI%20Bots%20and%20PC%20Performance" target="_blank" class="text-xs font-bold text-purple-400 hover:text-purple-300 flex items-center gap-1">
+              Discuss AI & Hardware <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES & PRICING SECTION -->
+    <section id="packages" class="py-20 border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <h2 class="text-xs font-bold text-blue-400 uppercase tracking-widest">Transparent Pricing</h2>
+          <p class="text-3xl font-extrabold text-white sm:text-4xl">Service Packages</p>
+          <p class="text-slate-400 text-sm sm:text-base">Structured packages for Web Development, Custom Apps, AI Agents, and Hardware Optimization.</p>
+        </div>
+
+        <!-- Section 1: Web & Software Digital Packages -->
+        <div class="mb-16">
+          <h3 class="text-lg font-bold text-emerald-400 mb-6 flex items-center gap-2">
+            <i class="fa-solid fa-laptop-code"></i> Group 1: Web, App & AI Digital Packages
+          </h3>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Package 1: Starter Website -->
+            <div class="bg-brand-card border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-blue-500/40 transition">
+              <div class="space-y-4">
+                <span class="px-2.5 py-1 rounded bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-wider">Starter Web</span>
+                <h4 class="text-xl font-bold text-white">Starter Local Business Website</h4>
+                <p class="text-slate-400 text-xs">Essential online presence for local shops and services.</p>
+                <div class="text-2xl font-extrabold text-white font-mono">₹4,999 <span class="text-xs text-slate-500 font-normal">– ₹7,999</span></div>
+                <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800">
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> 1–3 Responsive Pages (Home, Services, Contact)</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Google Maps Location & WhatsApp Direct Connect</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Basic On-Page SEO & Mobile Optimization</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> MSME Verification Badge Display</li>
+                </ul>
+              </div>
+              <a href="https://wa.me/916302347068?text=I%20am%20interested%20in%20the%20Starter%20Local%20Business%20Website%20Package" target="_blank" class="mt-6 w-full bg-blue-600/20 hover:bg-blue-600 text-blue-300 hover:text-white border border-blue-500/30 font-bold py-2.5 rounded-lg text-center transition text-xs">
+                Select Package
+              </a>
+            </div>
+
+            <!-- Package 2: Professional Business Digital Package -->
+            <div class="bg-brand-card border border-blue-500/50 rounded-2xl p-6 flex flex-col justify-between shadow-xl relative hover:border-blue-400 transition">
+              <span class="absolute -top-3 right-4 px-3 py-0.5 rounded-full bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider">Most Popular</span>
+              <div class="space-y-4">
+                <span class="px-2.5 py-1 rounded bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-wider">Professional</span>
+                <h4 class="text-xl font-bold text-white">Professional Business Digital Package</h4>
+                <p class="text-slate-400 text-xs">Complete digital footprint for established companies.</p>
+                <div class="text-2xl font-extrabold text-white font-mono">₹12,999 <span class="text-xs text-slate-500 font-normal">– ₹18,999</span></div>
+                <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800">
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> 5–8 Custom Pages (Portfolio, Services, Legal)</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Dynamic Inquiry Forms & Google Analytics</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Full Google Business Profile Setup</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Sub-2-Second Load Speed Optimization</li>
+                </ul>
+              </div>
+              <a href="https://wa.me/916302347068?text=I%20am%20interested%20in%20the%20Professional%20Business%20Digital%20Package" target="_blank" class="mt-6 w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-2.5 rounded-lg text-center transition text-xs shadow-lg shadow-blue-600/30">
+                Select Package
+              </a>
+            </div>
+
+            <!-- Package 3: E-Commerce & Online Store -->
+            <div class="bg-brand-card border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-blue-500/40 transition">
+              <div class="space-y-4">
+                <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-wider">E-Commerce</span>
+                <h4 class="text-xl font-bold text-white">E-Commerce Store & Payment Setup</h4>
+                <p class="text-slate-400 text-xs">Start selling products directly online with automated payments.</p>
+                <div class="text-2xl font-extrabold text-white font-mono">₹24,999 <span class="text-xs text-slate-500 font-normal">– ₹34,999</span></div>
+                <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800">
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Up to 25 Product Uploads & Catalog Setup</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Integrated Payment Gateway (Razorpay/UPI)</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Admin Dashboard & Stock Management</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Automated WhatsApp / Email Order Alerts</li>
+                </ul>
+              </div>
+              <a href="https://wa.me/916302347068?text=I%20am%20interested%20in%20the%20E-Commerce%20Store%20Package" target="_blank" class="mt-6 w-full bg-blue-600/20 hover:bg-blue-600 text-blue-300 hover:text-white border border-blue-500/30 font-bold py-2.5 rounded-lg text-center transition text-xs">
+                Select Package
+              </a>
+            </div>
+
+            <!-- Package 4: Custom Mobile App Development -->
+            <div class="bg-brand-card border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-purple-500/40 transition">
+              <div class="space-y-4">
+                <span class="px-2.5 py-1 rounded bg-purple-500/10 text-purple-400 text-xs font-bold uppercase tracking-wider">Mobile App</span>
+                <h4 class="text-xl font-bold text-white">Custom Mobile App Development</h4>
+                <p class="text-slate-400 text-xs">Native-performance Android & iOS mobile applications.</p>
+                <div class="text-2xl font-extrabold text-white font-mono">₹34,999 <span class="text-xs text-slate-500 font-normal">– ₹59,999</span></div>
+                <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800">
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Cross-Platform Android & iOS Codebase</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Phone OTP & User Authentication Setup</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Push Notifications & Database Backend</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Play Store / App Store Submission Support</li>
+                </ul>
+              </div>
+              <a href="https://wa.me/916302347068?text=I%20am%20interested%20in%20the%20Custom%20Mobile%20App%20Development%20Package" target="_blank" class="mt-6 w-full bg-purple-600/20 hover:bg-purple-600 text-purple-300 hover:text-white border border-purple-500/30 font-bold py-2.5 rounded-lg text-center transition text-xs">
+                Select Package
+              </a>
+            </div>
+
+            <!-- Package 5: Custom AI Agent Chatbot -->
+            <div class="bg-brand-card border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-amber-500/40 transition">
+              <div class="space-y-4">
+                <span class="px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 text-xs font-bold uppercase tracking-wider">AI Agent Bot</span>
+                <h4 class="text-xl font-bold text-white">Custom AI Agent & Business Chatbot</h4>
+                <p class="text-slate-400 text-xs">24/7 automated customer support and lead generation.</p>
+                <div class="text-2xl font-extrabold text-white font-mono">₹19,999 <span class="text-xs text-slate-500 font-normal">– ₹39,999</span></div>
+                <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800">
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Trained on Your Specific Services & Pricing FAQs</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Website & WhatsApp Business Integration</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Automated Lead Capture & Email Pushes</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Seamless Human Escalation Redirect</li>
+                </ul>
+              </div>
+              <a href="https://wa.me/916302347068?text=I%20am%20interested%20in%20the%20Custom%20AI%20Agent%20Chatbot%20Package" target="_blank" class="mt-6 w-full bg-amber-600/20 hover:bg-amber-600 text-amber-300 hover:text-white border border-amber-500/30 font-bold py-2.5 rounded-lg text-center transition text-xs">
+                Select Package
+              </a>
+            </div>
+
+            <!-- Recurring Growth Plan -->
+            <div class="bg-brand-card border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-teal-500/40 transition">
+              <div class="space-y-4">
+                <span class="px-2.5 py-1 rounded bg-teal-500/10 text-teal-400 text-xs font-bold uppercase tracking-wider">Monthly Managed</span>
+                <h4 class="text-xl font-bold text-white">Growth & Digital Maintenance Plan</h4>
+                <p class="text-slate-400 text-xs">Continuous website maintenance, SEO, and updates.</p>
+                <div class="text-2xl font-extrabold text-white font-mono">₹6,999 <span class="text-xs text-slate-500 font-normal">/ month</span></div>
+                <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800">
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Up to 4 Monthly Content / Product Updates</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Technical SEO & Load Speed Maintenance</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Local Google Business Profile Optimization</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Weekly Automated Backups & Analytics Reports</li>
+                </ul>
+              </div>
+              <a href="https://wa.me/916302347068?text=I%20am%20interested%20in%20the%20Monthly%20Growth%20and%20Maintenance%20Plan" target="_blank" class="mt-6 w-full bg-teal-600/20 hover:bg-teal-600 text-teal-300 hover:text-white border border-teal-500/30 font-bold py-2.5 rounded-lg text-center transition text-xs">
+                Subscribe Monthly
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+                Book Tune-Up
+              </a>
+            </div>
+
+            <div class="bg-brand-card border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-blue-500/40 transition">
+              <div class="space-y-3">
+
+    <!-- DIRECT PAYMENTS SECTION (PHONEPE / UPI) -->
+    <section id="payment" class="py-20 bg-brand-dark/50 border-b border-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="bg-brand-card border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl space-y-8 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none"></div>
+
+          <!-- Section Heading -->
+          <div class="border-b border-slate-800 pb-5 text-center sm:text-left">
+            <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-wider">Direct Payment</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Make a Direct Payment</h2>
+            <p class="text-slate-400 text-xs sm:text-sm mt-1">Pay securely via PhonePe, Google Pay, Paytm, or any standard UPI application.</p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            
+            <!-- UPI Details Column -->
+            <div class="space-y-6">
+              
+              <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-xl space-y-2">
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Official PhonePe / UPI VPA</span>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-base sm:text-lg font-mono font-bold text-emerald-400" id="upi-vpa">6302347068-3@ybl</span>
+                  <button onclick="copyUPI()" class="bg-emerald-600/20 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/30 px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5" id="copy-btn">
+                    <i class="fa-regular fa-copy"></i> Copy
+                  </button>
+                </div>
+              </div>
+
+              <div class="space-y-3 text-xs text-slate-300">
+                <div class="flex items-center gap-3">
+                  <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
+                  <span><strong>Account Name:</strong> AKL2HYD / Digital Solutions</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
+                  <span><strong>Supported Apps:</strong> PhonePe, GPay, Paytm, BHIM, Amazon Pay</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
+                  <span><strong>Confirmation:</strong> Send transaction screenshot directly on WhatsApp</span>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                <a href="upi://pay?pa=6302347068-3@ybl&pn=AKL2HYD&cu=INR" class="flex-1 bg-purple-700 hover:bg-purple-600 text-white font-bold py-3 px-4 rounded-xl text-center text-xs flex items-center justify-center gap-2 transition shadow-lg shadow-purple-900/30">
+                  <i class="fa-solid fa-mobile-screen-button"></i> Open UPI App
+                </a>
+                <a href="https://wa.me/916302347068?text=Hi%20Akl2Hyd%2C%20I%20have%20completed%20the%20payment.%20Here%20is%20the%20receipt." target="_blank" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl text-center text-xs flex items-center justify-center gap-2 transition shadow-lg shadow-emerald-900/20">
+                  <i class="fa-brands fa-whatsapp"></i> Send Screenshot
+                </a>
+              </div>
+
+            </div>
+
+            <!-- Dynamic QR Code Card -->
+            <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-2xl text-center space-y-4 flex flex-col items-center justify-center">
+              <span class="text-xs font-bold text-slate-300">Scan to Pay via PhonePe / Any UPI</span>
+              <div class="bg-white p-3 rounded-xl shadow-inner border border-slate-700">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=upi%3A%2F%2Fpay%3Fpa%3D6302347068-3%40ybl%26pn%3DAKL2HYD%26cu%3DINR" alt="PhonePe UPI QR Code" class="w-44 h-44 object-contain" loading="lazy">
+              </div>
+              <p class="text-[11px] text-slate-400">VPA: <strong class="text-slate-200">6302347068-3@ybl</strong></p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT US & LEGAL COMPLIANCE SECTION -->
+    <section id="about" class="py-20 border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        
+        <!-- About Overview -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6">
+            <h2 class="text-xs font-bold text-blue-400 uppercase tracking-widest">About Akl2Hyd</h2>
+            <h3 class="text-3xl font-extrabold text-white sm:text-4xl">Modern Tech Built with Enterprise Quality & Local Touch</h3>
+            <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+              <strong>Akl2Hyd</strong> (Auckland to Hyderabad) was founded to combine international quality digital standards with accessible, high-efficiency software and IT services.
+            </p>
+            <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+              Whether you run a local retail store looking to streamline WhatsApp ordering, a company needing custom full-stack web/mobile platforms, or an office requiring hardware performance optimization, we bridge the gap. We deliver clean execution, speed, and continuous support.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 pt-4">
+              <div class="border border-slate-800 bg-brand-card p-4 rounded-lg">
+                <p class="text-2xl font-bold text-white">100%</p>
+                <p class="text-xs text-slate-400 mt-1">Mobile Responsive & Speed Focused</p>
+              </div>
+              <div class="border border-slate-800 bg-brand-card p-4 rounded-lg">
+                <p class="text-2xl font-bold text-white">Direct</p>
+                <p class="text-xs text-slate-400 mt-1">WhatsApp & Call Support</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-brand-card border border-slate-800 p-8 rounded-2xl relative">
+            <h4 class="text-lg font-bold text-white mb-4 border-b border-slate-800 pb-3">Why Work With Us?</h4>
+            <ul class="space-y-4 text-sm text-slate-300">
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
+                <span><strong>Zero Overhead:</strong> Modern serverless architecture keeps web hosting costs low or practically free for small businesses.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
+                <span><strong>WhatsApp-First Integration:</strong> Direct messaging tools tailored for quick order processing and customer inquiries.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
+                <span><strong>Scalable Engineering:</strong> Native, lightweight code built for modern browser and mobile device performance.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Business & Client Legal Guidelines -->
+        <div class="bg-brand-card border border-slate-800 rounded-2xl p-8 space-y-8">
+          <div class="border-b border-slate-800 pb-4">
+            <h3 class="text-xl font-bold text-white">Operational & Legal Policies</h3>
+            <p class="text-xs text-slate-400 mt-1">Our standard operating terms, data collection policies, and refund guidelines for all client engagements.</p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-6 text-sm">
+            
+            <!-- Privacy Policy Summary -->
+            <div class="space-y-3">
+              <div class="flex items-center gap-2 text-blue-400 font-bold">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h4>Privacy Policy</h4>
+              </div>
+              <p class="text-slate-400 text-xs leading-relaxed">
+                We respect your privacy. Any client details, contact information, or project assets shared with Akl2Hyd are strictly used for project execution, communication, and technical delivery. We do not sell, rent, or share personal or business data with third parties.
+              </p>
+            </div>
+
+            <!-- Terms of Service Summary -->
+            <div class="space-y-3">
+              <div class="flex items-center gap-2 text-emerald-400 font-bold">
+                <i class="fa-solid fa-file-contract"></i>
+                <h4>Terms of Service</h4>
+              </div>
+              <p class="text-slate-400 text-xs leading-relaxed">
+                All software, code, and web design assets developed by Akl2Hyd become the exclusive property of the client upon full project payment completion. Project timelines and technical scopes are mutually agreed upon prior to kickoff.
+              </p>
+            </div>
+
+            <!-- Refund & Cancellation Policy -->
+            <div class="space-y-3">
+              <div class="flex items-center gap-2 text-purple-400 font-bold">
+                <i class="fa-solid fa-rotate-left"></i>
+                <h4>Refund & Cancellation</h4>
+              </div>
+              <p class="text-slate-400 text-xs leading-relaxed">
+                Initial deposit payments cover project scoping, setup, and resource allocation. If a client cancels a project before work commences, a full deposit refund is issued within 5–7 business days.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STORE LOCATION & OPERATING HOURS SECTION -->
+    <section id="location" class="py-20 bg-brand-dark/50 border-b border-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="bg-brand-card border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl space-y-8">
+          
+          <!-- Section Heading -->
+          <div class="flex items-center gap-3 border-b border-slate-800 pb-5">
+            <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-store"></i>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-bold uppercase tracking-wider text-amber-400">
+              STORE LOCATION & OPERATING HOURS
+            </h2>
+          </div>
+
+          <!-- Location Info Grid -->
+          <div class="space-y-5 text-sm sm:text-base">
+            
+            <!-- Store Name & Address -->
+            <div class="flex items-start gap-4">
+              <i class="fa-solid fa-location-dot text-amber-400 text-lg mt-1"></i>
+              <div>
+                <h3 class="font-bold text-white text-lg">Akl2Hyd</h3>
+                <p class="text-slate-300 mt-1">
+                  Keesara - Ecil Rd, opposite Sri Ram Bakery,<br>
+                  Keesara, Hyderabad, Secunderabad, Telangana - 501303
+                </p>
+              </div>
+            </div>
+
+            <!-- Operating Hours -->
+            <div class="flex items-center gap-4">
+              <i class="fa-regular fa-clock text-amber-400 text-lg"></i>
+              <p class="text-slate-300">
+                <strong class="text-white">Open Daily:</strong> 9.00 AM – 9.00 PM
+              </p>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="flex items-center gap-4">
+              <i class="fa-solid fa-phone text-amber-400 text-lg"></i>
+              <a href="tel:6302347068" class="text-slate-300 hover:text-amber-400 font-mono font-bold transition">
+                +91 6302347068
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Embedded Map & Navigation Box -->
+          <div class="space-y-4 pt-2">
+            
+            <div class="bg-slate-900/90 border border-slate-800 rounded-xl overflow-hidden relative group">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.83151811652!2d78.6811!3d17.5152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb830d172a5a29%3A0x6bd6c747cf3a90!2sAkl2Hyd!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                width="100%" 
+                height="220" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                class="opacity-75 group-hover:opacity-100 transition duration-300">
+              </iframe>
+
+              <div class="absolute inset-0 bg-slate-950/40 group-hover:bg-slate-950/20 transition flex flex-col items-center justify-center p-4 text-center pointer-events-none">
+                <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg mb-2 border border-amber-500/40">
+                  <i class="fa-solid fa-location-crosshairs"></i>
+                </div>
+                <p class="font-bold text-white text-base">Akl2Hyd - Keesara Location</p>
+                <p class="text-xs text-amber-400 underline mt-0.5">Click to navigate on Google Maps</p>
+              </div>
+            </div>
+
+            <a href="https://maps.app.goo.gl/XSmHoYXuvPdMLbir5" 
+               target="_blank" 
+               class="w-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/40 text-amber-300 font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-3 transition text-sm">
+              <i class="fa-solid fa-location-arrow text-base"></i>
+              Open Location in Google Maps
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 bg-brand-dark/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">Get In Touch</h2>
+          <p class="text-3xl font-extrabold text-white sm:text-4xl">Let's Start Your Project</p>
+          <p class="text-slate-400 mt-3 text-sm sm:text-base">Reach out via phone, WhatsApp, or social media channels.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          
+          <!-- Direct Phone Card -->
+          <div class="bg-brand-card border border-slate-800 p-6 rounded-2xl text-center space-y-4 hover:border-blue-500/40 transition">
+            <div class="w-12 h-12 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl mx-auto">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Call Us</h3>
+            <p class="text-slate-400 text-xs">Voice consultations & scopes.</p>
+            <a href="tel:6302347068" class="inline-block text-lg font-mono font-bold text-blue-400 hover:text-blue-300">
+              6302347068
+            </a>
+          </div>
+
+          <!-- Direct WhatsApp Card -->
+          <div class="bg-brand-card border border-slate-800 p-6 rounded-2xl text-center space-y-4 hover:border-emerald-500/40 transition">
+            <div class="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mx-auto">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">WhatsApp Chat</h3>
+            <p class="text-slate-400 text-xs">Quick quotes and queries.</p>
+            <a href="https://wa.me/916302347068?text=Hi%20Akl2Hyd%2C%20I%20have%20a%20project%20query." target="_blank" class="inline-block text-lg font-mono font-bold text-emerald-400 hover:text-emerald-300">
+              6302347068
+            </a>
+          </div>
+
+          <!-- Social Connect Card -->
+          <div class="bg-brand-card border border-slate-800 p-6 rounded-2xl text-center space-y-4 hover:border-purple-500/40 transition">
+            <div class="w-12 h-12 rounded-full bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl mx-auto">
+              <i class="fa-solid fa-share-nodes"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Social Media</h3>
+            <p class="text-slate-400 text-xs">Follow our updates & work.</p>
+            <div class="flex items-center justify-center gap-3 pt-1">
+              <a href="https://www.facebook.com/profile.php?id=61594793784310" target="_blank" class="bg-slate-800 hover:bg-blue-600 text-white w-9 h-9 rounded-lg flex items-center justify-center transition" title="Facebook">
+                <i class="fa-brands fa-facebook-f text-sm"></i>
+              </a>
+              <a href="https://www.instagram.com/akl2hyd/" target="_blank" class="bg-slate-800 hover:bg-pink-600 text-white w-9 h-9 rounded-lg flex items-center justify-center transition" title="Instagram">
+                <i class="fa-brands fa-instagram text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 bg-brand-dark py-10 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 space-y-6">
+      <div class="flex items-center justify-center gap-4">
+        <a href="https://www.facebook.com/profile.php?id=61594793784310" target="_blank" class="text-slate-400 hover:text-blue-400 transition">
+          <i class="fa-brands fa-facebook-f text-sm"></i> Facebook
+        </a>
+        <span class="text-slate-700">&bull;</span>
+        <a href="https://www.instagram.com/akl2hyd/" target="_blank" class="text-slate-400 hover:text-pink-400 transition">
+          <i class="fa-brands fa-instagram text-sm"></i> Instagram
+        </a>
+      </div>
+
+      <!-- MSME / Udyam Govt Registration Compliance Badge with Official Logo -->
+      <div class="max-w-2xl mx-auto bg-brand-card border border-slate-800/80 rounded-xl p-4 text-left shadow-lg">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-3 mb-3">
+          <div class="flex items-center gap-3">
+            <img src="https://udyamregistration.gov.in/assets/images/emblem-dark.png" alt="Government of India Emblem" class="h-10 w-auto bg-white/10 p-1 rounded border border-slate-700" loading="lazy">
+            <div>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-bold uppercase tracking-wider block w-fit mb-0.5">
+                Govt. Registered Enterprise
+              </span>
+              <span class="text-slate-400 text-[11px]">Ministry of Micro, Small & Medium Enterprises</span>
+            </div>
+          </div>
+          <div class="text-[11px] font-mono text-blue-400 font-bold bg-slate-800/80 px-2.5 py-1 rounded border border-slate-700">
+            UDYAM-TS-20-0215910
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-slate-400">
+          <div><strong class="text-slate-300">Enterprise Name:</strong> AKL2HYD</div>
+          <div><strong class="text-slate-300">Category:</strong> Micro Enterprise (Services)</div>
+          <div><strong class="text-slate-300">NIC Code:</strong> 62012 (Web Page Designing & Dev)</div>
+          <div><strong class="text-slate-300">Location:</strong> Keesara, Medchal-Malkajgiri, TS - 501303</div>
+        </div>
+      </div>
+
+      <p>&copy; <span id="year"></span> <strong>Akl2Hyd</strong>. All rights reserved.</p>
+      <p>Digital Adoption &bull; Web Development &bull; App Development &bull; IT Services</p>
+    </div>
+  </footer>
+
+  <!-- Simple Toggle & Copy JavaScript -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    function copyUPI() {
+      const upiText = document.getElementById('upi-vpa').textContent;
+      navigator.clipboard.writeText(upiText).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+        btn.classList.add('bg-emerald-600', 'text-white');
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
+          btn.classList.remove('bg-emerald-600', 'text-white');
+        }, 2000);
+      });
+    }
+  </script>
+
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7a6fecda21794ee981fbf9c61748a250"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
